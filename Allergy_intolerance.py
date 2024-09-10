@@ -86,8 +86,8 @@ class Reaction(BackboneElement):
 
 
 class Narrative(BaseModel):
-    status: str  # e.g., generated, extensions, additional, or empty
-    div: str  # The actual content of the narrative, usually in XHTML format
+    status: Literal['generated', 'extensions', 'additional', 'empty']
+    div: str  # XHTML content, ensure safe handling if displaying in UI
 
 
 class Meta(BaseModel):
