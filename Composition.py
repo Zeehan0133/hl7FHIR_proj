@@ -2,7 +2,10 @@ from typing import List, Literal, Optional
 from pydantic import BaseModel
 from datetime import datetime
 
-# Assuming these models are already defined as they are common across FHIR resources
+
+class Period(BaseModel):
+    start: Optional[datetime] = None
+    end: Optional[datetime] = None
 
 class Identifier(BaseModel):
     use: Optional[str] = None
@@ -28,9 +31,6 @@ class Reference(BaseModel):
     identifier: Optional[Identifier] = None
     display: Optional[str] = None
 
-class Period(BaseModel):
-    start: Optional[datetime] = None
-    end: Optional[datetime] = None
 
 class Narrative(BaseModel):
     status: Literal['generated', 'extensions', 'additional', 'empty']
